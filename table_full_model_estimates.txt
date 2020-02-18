@@ -1,0 +1,170 @@
+
+------ Information on the cubic spline basis for time (knot locations, etc) ----"
+
+$dim
+[1] 51716     3
+
+$dimnames
+$dimnames[[1]]
+NULL
+
+$dimnames[[2]]
+[1] "1" "2" "3"
+
+
+$degree
+[1] 3
+
+$knots
+33.33333% 66.66667% 
+0.9883641 2.3709788 
+
+$Boundary.knots
+[1] 0.000000 4.999316
+
+$intercept
+[1] FALSE
+
+$class
+[1] "ns"     "basis"  "matrix"
+
+
+----------------- Full model parameter estimates -----------------
+
+Joint latent class model for quantitative outcome and competing risks 
+     fitted by maximum likelihood method 
+ 
+Jointlcmm(fixed = bmi2 ~ ns(t0, 3), mixture = ~ns(t0, 3), random = ~1, 
+    subject = "randid", ng = ng, survival = Surv(competT, competD) ~ 
+        cause(rxfirstdatecat) + cause(female) + cause(lungyn) + 
+            cause(coronaryyn) + cause(cvdyn) + cause(pvdyn) + 
+            cause(diabetesyn) + cause(prdcat) + cause(racecat2) + 
+            cause(agerrt50), data = data, logscale = FALSE)
+ 
+Statistical Model: 
+     Dataset: data 
+     Number of subjects: 16414 
+     Number of observations: 51716 
+     Number of latent classes: 5 
+     Number of parameters: 74  
+     Event 1: 
+        Number of events: 5639
+        Class-specific hazards and 
+        Weibull baseline risk function 
+     Event 2: 
+        Number of events: 2365
+        Class-specific hazards and 
+        Weibull baseline risk function 
+ 
+Iteration process: 
+     Convergence criteria satisfied 
+     Number of iterations:  10 
+     Convergence criteria: parameters= 6.8e-07 
+                         : likelihood= 3.6e-05 
+                         : second derivatives= 4.1e-08 
+ 
+Goodness-of-fit statistics: 
+     maximum log-likelihood: -27434.33  
+     AIC: 55016.65  
+     BIC: 55586.89  
+     Score test statistic for global CI assumption: 255.064 (p-value=0) 
+     Score test statistic for event-specific CI assumption: 
+           event 1:224.755 (p-value=0) 
+           event 2:29.048 (p-value=0) 
+ 
+ 
+Maximum Likelihood Estimates: 
+ 
+Fixed effects in the class-membership model:
+(the class of reference is the last class) 
+
+                     coef      Se    Wald p-value
+intercept class1 -1.02085 0.13081  -7.804 0.00000
+intercept class2  2.43073 0.08342  29.138 0.00000
+intercept class3  0.79897 0.09495   8.415 0.00000
+intercept class4  0.39949 0.10359   3.857 0.00011
+
+Parameters in the proportional hazard model:
+
+                                                     coef      Se    Wald p-value
+event1 +/-sqrt(Weibull1) class 1                  0.43520 0.01953  22.281 0.00000
+event1 +/-sqrt(Weibull2) class 1                  1.23072 0.09164  13.429 0.00000
+event1 +/-sqrt(Weibull1) class 2                  0.23534 0.00764  30.789 0.00000
+event1 +/-sqrt(Weibull2) class 2                  0.98302 0.00703 139.913 0.00000
+event1 +/-sqrt(Weibull1) class 3                  0.17209 0.01257  13.685 0.00000
+event1 +/-sqrt(Weibull2) class 3                  0.96796 0.02980  32.486 0.00000
+event1 +/-sqrt(Weibull1) class 4                  0.36856 0.00721  51.136 0.00000
+event1 +/-sqrt(Weibull2) class 4                  1.65930 0.05252  31.594 0.00000
+event1 +/-sqrt(Weibull1) class 5                  0.25351 0.02499  10.144 0.00000
+event1 +/-sqrt(Weibull2) class 5                  1.40739 0.12201  11.535 0.00000
+event2 +/-sqrt(Weibull1) class 1                  0.56090 0.04724  11.874 0.00000
+event2 +/-sqrt(Weibull2) class 1                  1.25378 0.11860  10.571 0.00000
+event2 +/-sqrt(Weibull1) class 2                  0.55083 0.02685  20.516 0.00000
+event2 +/-sqrt(Weibull2) class 2                  1.07658 0.01490  72.278 0.00000
+event2 +/-sqrt(Weibull1) class 3                  0.35197 0.02500  14.076 0.00000
+event2 +/-sqrt(Weibull2) class 3                  1.25793 0.08969  14.025 0.00000
+event2 +/-sqrt(Weibull1) class 4                  0.40414 0.03306  12.223 0.00000
+event2 +/-sqrt(Weibull2) class 4                  1.08115 0.08035  13.455 0.00000
+event2 +/-sqrt(Weibull1) class 5                  0.45683 0.06170   7.404 0.00000
+event2 +/-sqrt(Weibull2) class 5                  0.82415 0.06296  13.090 0.00000
+rxfirstdatecat1/1/10 to 31/12/14 event1          -0.13924 0.02905  -4.793 0.00000
+rxfirstdatecat1/1/10 to 31/12/14 event2           0.21776 0.04413   4.934 0.00000
+femaleYes event1                                  0.04981 0.02885   1.726 0.08428
+femaleYes event2                                 -0.11771 0.04557  -2.583 0.00980
+lungynYes event1                                  0.25027 0.03216   7.782 0.00000
+lungynYes event2                                 -0.64151 0.09111  -7.041 0.00000
+coronaryynYes event1                              0.28615 0.03092   9.254 0.00000
+coronaryynYes event2                             -0.37626 0.06300  -5.972 0.00000
+cvdynYes event1                                   0.25056 0.03363   7.451 0.00000
+cvdynYes event2                                  -0.46831 0.09970  -4.697 0.00000
+pvdynYes event1                                   0.23741 0.03116   7.618 0.00000
+pvdynYes event2                                  -0.27709 0.08148  -3.401 0.00067
+diabetesynYes event1                              0.21476 0.04222   5.086 0.00000
+diabetesynYes event2                             -0.44452 0.09786  -4.542 0.00001
+prdcatGN event1                                  -0.28777 0.05343  -5.386 0.00000
+prdcatGN event2                                   0.19727 0.10922   1.806 0.07088
+prdcatHypertension event1                        -0.04449 0.05002  -0.889 0.37377
+prdcatHypertension event2                        -0.14673 0.12721  -1.153 0.24872
+prdcatOther/Uncertain event1                      0.13261 0.04787   2.770 0.00560
+prdcatOther/Uncertain event2                      0.06103 0.10992   0.555 0.57872
+racecat2Aboriginal/Torres Strait Islander event1  0.01139 0.05385   0.211 0.83254
+racecat2Aboriginal/Torres Strait Islander event2 -1.89426 0.12675 -14.945 0.00000
+racecat2Asian event1                             -0.48183 0.06922  -6.961 0.00000
+racecat2Asian event2                             -0.45555 0.08174  -5.573 0.00000
+racecat2Maori/Pacific event1                      0.12063 0.05158   2.339 0.01935
+racecat2Maori/Pacific event2                     -1.41440 0.10868 -13.014 0.00000
+agerrt50 event1                                   0.03571 0.00146  24.445 0.00000
+agerrt50 event2                                  -0.10916 0.00319 -34.225 0.00000
+
+Fixed effects in the longitudinal model:
+
+                      coef      Se    Wald p-value
+intercept class1   1.20124 0.04970  24.169 0.00000
+intercept class2   0.02219 0.00610   3.640 0.00027
+intercept class3   1.06104 0.01789  59.310 0.00000
+intercept class4   0.75941 0.02504  30.333 0.00000
+intercept class5   0.20341 0.02666   7.630 0.00000
+ns(t0, 3)1 class1 -0.94043 0.05065 -18.568 0.00000
+ns(t0, 3)1 class2  0.01798 0.00482   3.730 0.00019
+ns(t0, 3)1 class3  0.04586 0.01155   3.971 0.00007
+ns(t0, 3)1 class4 -0.34350 0.01518 -22.625 0.00000
+ns(t0, 3)1 class5  0.48553 0.01876  25.884 0.00000
+ns(t0, 3)2 class1 -2.19200 0.07561 -28.993 0.00000
+ns(t0, 3)2 class2  0.00260 0.00760   0.342 0.73238
+ns(t0, 3)2 class3  0.03083 0.02313   1.333 0.18255
+ns(t0, 3)2 class4 -0.58054 0.02881 -20.153 0.00000
+ns(t0, 3)2 class5  0.85528 0.03749  22.813 0.00000
+ns(t0, 3)3 class1 -1.62646 0.06144 -26.472 0.00000
+ns(t0, 3)3 class2 -0.04454 0.00517  -8.620 0.00000
+ns(t0, 3)3 class3 -0.08963 0.01279  -7.007 0.00000
+ns(t0, 3)3 class4 -0.66648 0.01674 -39.816 0.00000
+ns(t0, 3)3 class5  0.41278 0.01772  23.299 0.00000
+
+
+Variance-covariance matrix of the random-effects:
+          intercept
+intercept   0.14389
+
+                            coef      Se
+Residual standard error  0.13472 0.00058
+
